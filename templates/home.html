@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake News Detection</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<script>
+        // Check if the page is being reloaded
+        if (performance.navigation.type === 1) {
+            // Redirect to '/home' if the page is being reloaded
+            window.location.href = "/home";
+        }
+    </script>```
+</head>
+<body>
+<header class="site-header">
+    <div class="container">
+        <div class="headpart">
+            <a class="logo" href="#" title="logo">
+                Fake News Detection Using LSTM
+            </a>
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="#homeid">home</a>
+                    </li>
+                    <li>
+                        <a href="#aboutid">about us</a>
+                    </li>
+                    <li>
+                        <a href="#contactid">contact us</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<section id="homeid" class="content-section">
+    <div class="container">
+        <h1>Check if a News Article is Fake:</h1>
+        <form id="linkForm" action="{{ url_for('read_form') }}" method="post" class="site-form">
+            <div>
+                <textarea id="msg" name="msg" placeholder="Add News Headline/News Body/Article Body in Text Format"
+                          rows="7" cols="65" required></textarea>
+            </div>
+            <div>
+                <button type="submit" class="conbut">verify</button>
+            </div>
+        </form>
+        {% if response %}
+        <h4 style="color: #0E2A46; font-size: 25px">{{ response }}</h4>
+        {% endif %}
+    </div>
+</section>
+<section id="aboutid" class="about-section">
+    <div class="container">
+        <h2>about us: </h2>
+        <p>Welcome to our website dedicated to combating the spread of misinformation with the power of Artificial
+            Intelligence. We are a team of five passionate students: Aslam Sk, Suvojit Halder, Somnath Roy, Sneha
+            Sarkar, and Rudrani Chattopadhyay. Our mission is to create a reliable and user-friendly platform that helps
+            users identify and avoid fake news. Leveraging advanced AI algorithms, our website analyzes news content for
+            authenticity, ensuring that you receive accurate and trustworthy information. Join us in our fight against fake
+            news and help promote a well-informed and truthful society.</p>
+    </div>
+</section>
+<section id="contactid" class="contact-section">
+    <div class="container">
+        <h2>contact us</h2>
+        <div class="contact-group">
+            <div class="contact-part">
+                <h3>Suvojit Halder</h3>
+                <h4>phone no: </h4>
+                <div class="contact-details">
+                    <span class="phone">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </span>
+                    <a href="#">7044222582</a>
+                </div>
+                <h4>email id: </h4>
+                <div class="email-details">
+                    <span class="email">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                    <a href="mailto:suvohalder69420@gmail.com">suvohalder69420@gmail.com</a>
+                </div>
+            </div>
+			<div class="contact-part">
+				<h3>Somnath Roy</h3>
+				<h4>phone no: </h4>
+				<div class="contact-details">
+					<span class="phone">
+						<i class="fa fa-phone" aria-hidden="true"></i>
+					</span>
+					<a href="#">6290832136</a>
+				</div>
+				<h4>email id: </h4>
+				<div class="email-details">
+					<span class="email">
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+					</span>
+					<a href="#">rsomnnath@gmail.com</a>
+				</div>
+			</div>
+			<div class="contact-part">
+				<h3>Aslam SK</h3>
+				<h4>phone no: </h4>
+				<div class="contact-details">
+					<span class="phone">
+						<i class="fa fa-phone" aria-hidden="true"></i>
+					</span>
+					<a href="#">6294748278</a>
+				</div>
+				<h4>email id: </h4>
+				<div class="email-details">
+					<span class="email">
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+					</span>
+					<a href="#">aslamsksm@gmail.com</a>
+				</div>
+			</div>
+			<div class="contact-part">
+				<h3>Sneha Sarkar</h3>
+				<h4>phone no: </h4>
+				<div class="contact-details">
+					<span class="phone">
+						<i class="fa fa-phone" aria-hidden="true"></i>
+					</span>
+					<a href="#">6290561144</a>
+				</div>
+				<h4>email id: </h4>
+				<div class="email-details">
+					<span class="email">
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+					</span>
+					<a href="#">snehasarkar513@gmail.com</a>
+				</div>
+			</div>
+			<div class="contact-part">
+				<h3>Rudrani Chattopadhyay</h3>
+				<h4>phone no: </h4>
+				<div class="contact-details">
+					<span class="phone">
+						<i class="fa fa-phone" aria-hidden="true"></i>
+					</span>
+					<a href="#">8777013829</a>
+				</div>
+				<h4>email id: </h4>
+				<div class="email-details">
+					<span class="email">
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+					</span>
+					<a href="#">rudrani.ch.22@gmail.com</a>
+				</div>
+			</div>	
+        </div>
+    </div>
+</section>
+<footer class="site-footer">
+    <div class="container">
+        <div class="footpart">
+            <a class="footlogo" href="#">
+                <img src="{{ url_for('static', filename='images/logo-msit.png') }}" alt="logo">
+            </a>
+            <div class="adresspart">
+                <h4>our address</h4>
+                <div class="adressect">
+                    <span class="addico">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </span>
+                    <address>Behind Urbana Complex Near,Ruby General Hospital, Anandapur Rd, Uchhepota, Kolkata, West
+                        Bengal 700150
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="{{ url_for('static', filename='library.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='custom.js') }}"></script>
+</body>
+</html>
